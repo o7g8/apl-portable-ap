@@ -19,7 +19,22 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g3 -fno-strict-aliasing -fPIC -fvisibility=
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -m${BITNESS} -Wl,-Bstatic -ltinfo -Wl,-Bdynamic -lm -lpthread -ldl -lrt -Xlinker -Map=example.map -Xlinker --cref -Xlinker --gc-sections")
 link_directories(${CMAKE_SOURCE_DIR}/../xflib)
 
-add_executable(example example.c machine.h apl.h trans.h gfns.h support.h)
+add_executable(example 
+			example.c
+			apl.h
+			apllimits.h
+			apltypes.h
+			d_machin.h
+			eltypes.h
+			gfns.h
+			io_maps.h
+			machine.h
+			ourdirent.h
+			port.h
+			support.h
+			trans.h
+			unique_fid.h
+		)
 target_include_directories(example PRIVATE .)
 target_compile_definitions(example PRIVATE AP_BUILD=1)
 target_compile_options(example PRIVATE -MMD -MF example.d -MP)
