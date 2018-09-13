@@ -1,7 +1,15 @@
 # apl-portable-ap
-Example of a portable single-source implementation of Dyalog APL Auxiliary Processor.
+Example of a portable single-source implementation of Dyalog APL Auxiliary Processor based on the source code from Dyalog examples.
 
-Ensure you have installed distribution of Dyalog APL for your operating system. The instructions below assume v17.0 of the Dyalog APL.
+There are several downsides with the stock Dyalog examples:
+
+* cumbersome build system, which exists in two variants: one for Windows and another one for Linux/UNIX;
+
+* differences in codebase for Linux/UNIX and Windows.
+
+The project addresses both of the issues with the single streamlined cross-platform build system and single cross-platform codebase.
+
+Ensure you have installed distribution of Dyalog APL for your operating system. The instructions below assumes v17.0 of the Dyalog APL.
 
 ## Linux build
 
@@ -40,7 +48,7 @@ make
 
 The newly built Auxiliary Processor (AP) binary `example` will be in the `build` directory.
 
-Test the AP in an APL session (the example is inspired by <http://help.dyalog.com/17.0/Content/UserGuide/Installation%20and%20Configuration/Auxiliary%20Processors.htm>:
+Test the AP in an APL session (the example is inspired by (<http://help.dyalog.com/17.0/Content/UserGuide/Installation%20and%20Configuration/Auxiliary%20Processors.htm> "Auxilliary Processors")):
 
 ```apl
 
