@@ -1,5 +1,5 @@
 # apl-portable-ap
-Example of a portable single-source implementation of Dyalog APL Auxiliary Processor based on the source code from Dyalog examples.
+Example of a portable single-source implementation of Dyalog APL Auxiliary Processor (AP) based on the source code from Dyalog examples.
 
 There are several downsides with the stock Dyalog examples:
 
@@ -7,7 +7,7 @@ There are several downsides with the stock Dyalog examples:
 
 * differences in codebase for Linux/UNIX and Windows.
 
-The project addresses both of the issues with the single streamlined cross-platform build system and single cross-platform codebase.
+The project addresses both of the issues with the single streamlined cross-platform build system and single cross-platform codebase, which contains the bare necessary minimum for building a functionning AP.
 
 Ensure you have installed distribution of Dyalog APL for your operating system. The instructions below use Dyalog APL v17.0.
 
