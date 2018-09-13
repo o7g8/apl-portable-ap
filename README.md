@@ -46,9 +46,9 @@ make
 
 ```
 
-The newly built Auxiliary Processor (AP) binary `example` will be in the `build` directory.
+You will find the newly built AP binary `example` in the `build` directory.
 
-Test the AP in an APL session (the example is inspired by [Auxilliary Processors](http://help.dyalog.com/17.0/Content/UserGuide/Installation%20and%20Configuration/Auxiliary%20Processors.htm):
+Test the AP in an APL session (the example is inspired by [Auxilliary Processors](http://help.dyalog.com/17.0/Content/UserGuide/Installation%20and%20Configuration/Auxiliary%20Processors.htm)):
 
 ```apl
 
