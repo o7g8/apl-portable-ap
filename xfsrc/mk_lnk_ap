@@ -1,0 +1,14 @@
+#!/bin/sh
+#set -x
+
+OUTPUT="$1"
+shift
+
+case "$OUTPUT" in
+*$MK_DLLEXT)			# dynamic library
+	mk_lnk_linux $OUTPUT -shared -Wl,-soname,$(basename $OUTPUT) "$@"
+	;;
+*$MK_EXEEXT)			# executable
+	mk_lnk_linux $OUTPUT "$@"
+	;;
+esac

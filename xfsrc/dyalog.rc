@@ -1,0 +1,9 @@
+#include <machine.h>
+#include <windows.h>
+#include <version.h>
+
+#define VERSION_FILE_DESCRIPTION "AP example "  VERSIONAB_DOT_STR " " EDITIONSTR 
+#define VERSION_INTERNAL_NAME "dyalog ap\0"
+
+#include <version.rc>
+

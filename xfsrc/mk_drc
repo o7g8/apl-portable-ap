@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $# in
+    1)
+	TARGET=$OBJDIR/$(basename $1 .rc)$MK_RESEXT
+	;;
+    2)
+	TARGET=$OBJDIR/$2$MK_RESEXT
+	;;
+esac
+
+mkdir -p $OBJDIR
+touch $TARGET

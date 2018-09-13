@@ -1,0 +1,57 @@
+#!/bin/sh
+
+usage()
+	{
+	echo	"make.aps [-f makefile] [targets]"
+	echo	"make.aps -h"
+	}
+
+export MK_PORT=$(uname | tr '[:upper:]' '[:lower:]')
+export MK_APLVERSION=170
+export MK_BITS=64
+export MK_UNICODE=1
+export MK_API="tty"
+export MK_EXEEXT=""
+export MK_DLLEXT=".so"
+export MK_LIBEXT=".a"
+export MK_OBJEXT=".o"
+export MK_RESEXT=".rsb"
+export MK_DEPEXT=".d"
+export MK_DEBUG=0
+export MK_CONSOLE=1
+export MK_AP_BUILD=1
+export MK_SVN_REVISION=""
+export MK_XFSRC=${MK_XFSRC-.}
+export MK_XFLIB=${MK_XFLIB-../xflib}
+export MK_SRCDIR=${MK_SRCDIR-.}
+export MK_PORTDIR=${MK_PORTDIR-.}
+export OBJDIR="${OBJDIR-$MK_XFLIB}"
+export PATH=".:$PATH"
+export LIBDIR="${LIBDIR-$OBJDIR}"
+export MK_DECF_OBJ="${MK_DECF_OBJ-$LIBDIR}"
+export MK_LIBDECF="${MK_LIBDECF-$MK_DECF_OBJ/libdecf$MK_LIBEXT}"
+
+F=makefile		# default
+
+case $# in		# handle possible -f
+0)
+	;;
+1)
+	case $1 in
+	-h)
+		usage
+		exit
+		;;
+	esac
+	;;
+*)			# at least 2
+	case $1 in
+	-f)
+		F=$2
+		shift 2
+		;;
+	esac
+	;;
+esac
+	
+VERBOSE=2 "${MAKE:-gmake}" -r -R -f $F "$@"
