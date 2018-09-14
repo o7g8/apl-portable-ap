@@ -8,7 +8,12 @@
 // scripts. Otherwise d_machin.h is the correct place. History: d_machin.h used
 // to be called default_machine.h before we had DOS and 8.3 file names.
 
-	#include	<port.h>
+# if UNIX
+	#include	<linux/port.h>
+#else // WIN
+	#include	<win/port.h>
+#endif // UNIX
+
 	#include	<d_machin.h>
 
 #endif // _MACHINE_H
