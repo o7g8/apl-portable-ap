@@ -30,7 +30,8 @@ add_executable(example
 			io_maps.h
 			machine.h
 			ourdirent.h
-			port.h
+			win/port.h
+			linux/port.h
 			support.h
 			trans.h
 			unique_fid.h
