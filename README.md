@@ -64,3 +64,9 @@ xx←IDN_TO_DATE 19407
 DISPLAY xx ⍝ should show 18 F 1953
 
 ```
+
+## References
+
+* <http://sourceware.org/binutils/docs/ld/Options.html>
+
+* <https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html>
