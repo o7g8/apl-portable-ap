@@ -107,7 +107,7 @@ Regarding `obj` file conversions into different formats see also:
 
 Will it be possible to debug the result?
 
-### "Hybrid" solution: AP loads a shared library
+### AP (compiled with MSVC) loads a shared library (compiled with any toolchain)
 
 Implement a "thin" AP using the compatible version of MSVC on Windows and GNU GCC on Linux. Move the business logic into a separate cross-platform shared library, which can be built with any toolchain.
 
