@@ -1,4 +1,5 @@
 # apl-portable-ap
+
 Example of a portable single-source implementation of Dyalog APL Auxiliary Processor (AP) based on the source code from Dyalog examples.
 
 There are several downsides with the stock Dyalog examples:
@@ -7,9 +8,19 @@ There are several downsides with the stock Dyalog examples:
 
 * differences in codebase for Linux/UNIX and Windows.
 
-The project addresses both of the issues with the single streamlined cross-platform build system and single cross-platform codebase, which contains the bare necessary minimum for building a functionning AP.
+The project addresses both of the issues with the single streamlined cross-platform build system and single cross-platform codebase, which contains the bare necessary minimum for building a functioning AP.
 
 Ensure you have installed distribution of Dyalog APL for your operating system. The instructions below use Dyalog APL v17.0.
+
+## Motivation
+
+Investigate:
+
+* what efforts does it take to turn an existing AP into a cross-platform solution?
+
+* is it easier to convert the AP into a shared library and use Name Association instead?
+
+* is it possible to have the same codebase, build system and use the same toolchain (GNU GCC) on all platforms?
 
 ## Linux build
 
