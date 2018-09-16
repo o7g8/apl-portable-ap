@@ -65,7 +65,7 @@ Test the AP in an APL session (the example is inspired by [Auxilliary Processors
 
 ⍝ start the AP
 '<the-full-path>/build/example' ⎕CMD ''
-)fns ⍝ should show DATE_TO_IDN IDN_TO_DATE 
+)fns ⍝ should show DATE_TO_IDN IDN_TO_DATE
 
 ⍝ invoke an AP's function
 xx←IDN_TO_DATE 19407
