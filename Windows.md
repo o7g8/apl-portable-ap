@@ -11,7 +11,7 @@ D:\src\apl-portable-ap\build>mingw32-make
 
 ```
 
-MINGW/GCC (`gcc (Rev1, Built by MSYS2 project) 8.2.0`) is able to compile the `example.c` and produces `example.obj` but GCC linker is not able to link with the Dyalog library and produces following errors:
+MINGW/GCC (`gcc (Rev1, Built by MSYS2 project) 8.2.0`) is able to compile the `example.c` and produces `example.c.obj` but GCC linker is not able to link with the Dyalog library and produces following errors:
 
 ```text
 
@@ -61,7 +61,7 @@ start address 0x0000000000000000
 
 ```
 
-And finally the Dyalog's static library `apl.lib`, which we need to link to:
+And finally the Dyalog's library `apl.lib`, which we need to link to:
 
 ```bash
 
@@ -114,6 +114,12 @@ Implement a "thin" AP using the compatible version of MSVC on Windows and GNU GC
 Once we get a shared library the most logical solution is to get rid of AP at all and switch to Name Association in APL.
 
 See also:
+
+* <https://www.transmissionzero.co.uk/computing/win32-apps-with-mingw/>
+
+* <https://www.transmissionzero.co.uk/computing/building-dlls-with-mingw/>
+
+* <https://www.transmissionzero.co.uk/computing/advanced-mingw-dll-topics/>
 
 * <http://gernotklingler.com/blog/creating-using-shared-libraries-different-compilers-different-operating-systems/>
 
