@@ -91,11 +91,25 @@ The attempt to load the AP in APL hangs the APL session. The same happens if I b
 
 TODO:
 
-* Find compatible MSVC environment which builds workable AP using stock Dyalog's build scripts.
+* Find compatible MSVC environment which builds workable AP using stock Dyalog's build scripts. Are the Dyalog's resource files absolutely necessary (`windres` has issues with them)!?
 
-* Rebuild the hybrid GNU compiler / MSVC linker solution using the compatible MSVC environment.
+* Rebuild the hybrid GNU compiler / MSVC linker solution using the compatible MSVC environment (apparently VS2013/WinSDK 7.1A).
 
-Question: do I need to add the `msvcrt.lib /nodefaultlib:libcmt`?
+Open questions:
+
+* do I need to add the `msvcrt.lib /nodefaultlib:libcmt` to the linker?
+
+* will it be possible to debug the final AP?
+
+* will the MCVC linking work for C++ GNU-compiled obj-files?
+
+Regarding C++ ABI compatibility:
+
+* <https://www.youtube.com/watch?v=BbbqBJ94-_E>, <https://github.com/boostcon/cppnow_presentations_2013/blob/master/tue/easy_binary_compat.pdf>, <https://github.com/jbandela/cross_compiler_call>
+
+* <https://www.p6r.com/articles/2014/07/20/binary-compatible-c-interfaces/>
+
+* <https://chadaustin.me/cppinterface.html>
 
 Regarding `obj` file conversions into different formats see also:
 
@@ -104,8 +118,6 @@ Regarding `obj` file conversions into different formats see also:
 * GNU `objcopy --info`
 
 * The necessity of `legacy_stdio_definitions.lib` in VS2015+ <https://stackoverflow.com/questions/32418766/c-unresolved-external-symbol-sprintf-and-sscanf-in-visual-studio-2015>
-
-Will it be possible to debug the result?
 
 ### AP (compiled with MSVC) loads a shared library (compiled with any toolchain)
 
