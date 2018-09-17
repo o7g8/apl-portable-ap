@@ -77,7 +77,7 @@ start address 0x0000000000000000
 
 All of them have the same format `pe-x86-64`, therefore no conversion should be necessary.
 
-Let's link the  `example.c.obj` compiled by GNU GCC with the Dyalog's `apl.lib` using VS2017 linker (in `x64 Native Tools Command Prompt for VS2017`):  
+Let's link the  `example.c.obj` compiled by GNU GCC with the Dyalog's `apl.lib` using VS2017 linker (in `x64 Native Tools Command Prompt for VS2017`) or VS2015 linker:  
 
 ```bat
 
@@ -89,11 +89,37 @@ It produces the `example.exe` without errors!
 
 The attempt to load the AP in APL hangs the APL session. The same happens if I build the stock Dyalog's example using stock Dyalog's scripts in VS2017 environment.
 
+The question is what toolchain has Dyalog used to build the `apl.lib`?
+
+```bash
+
+$ strings <path-to>/apl.lib > strings.txt
+$ less strings.txt
+
+```
+
+Inspection of the `strings.txt` brings some clues:
+
+```text
+
+...
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\amd64\cl.exe
+-DDECIMAL_CALL_BY_REFERENCE=0 -DDECIMAL_GLOBAL_ROUNDING=1 -DDECIMAL_GLOBAL_EXCEPTION_FLAGS=1 -Ox -Z7 -MT -DWINDOWS -DBID_MS_FLAGS -nologo -D_CRT_SECURE_NO_DEPRECATE -W3 -WX -wd4244 -wd4146 -wd4018 -wd4267 -c -I"C:\Program Files (x86)\Microsoft
+ Visual Studio 14.0\VC\INCLUDE" -I"c:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"c:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\shared" -I"c:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\um" -TC -X
+c:/src/17.0.dss/svn/libdecf/intel/bid_convert_data.c
+...
+/DEFAULTLIB:"LIBCMT" /DEFAULTLIB:"OLDNAMES"
+...
+
+```
+
+Apparently the library is built with VS2015 and Windows SDK 10.0.10240.0.
+
 TODO:
 
 * Find compatible MSVC environment which builds workable AP using stock Dyalog's build scripts. Are the Dyalog's resource files absolutely necessary (`windres` has issues with them)!?
 
-* Rebuild the hybrid GNU compiler / MSVC linker solution using the compatible MSVC environment (apparently VS2013/WinSDK 7.1A).
+* Rebuild the hybrid GNU compiler / MSVC linker solution using the compatible MSVC environment (apparently VS2015 and Windows SDK 10.0.10240.0).
 
 Open questions:
 
